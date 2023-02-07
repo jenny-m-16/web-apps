@@ -1,0 +1,17 @@
+<h1>Contacts</h1>
+<p>
+
+<% contacts = Contact.all%>
+<% companies = Company.all %>
+
+<% for contact in contacts %>
+    <li><% first_name = contact["first_name"]
+    last_name = contact["last_name"] 
+    company_id = Company.find_by({"id" => contact["company_id"]})
+    company_name = company_id["name"] %>
+    <%= "#{first_name} #{last_name} #{company_name}" %>
+    </li>
+<% end %>
+
+
+</p>
